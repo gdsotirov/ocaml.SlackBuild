@@ -19,13 +19,13 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: ocaml.SlackBuild,v 1.4 2012/08/19 17:12:40 gsotirov Exp $
+# $Id: ocaml.SlackBuild,v 1.5 2012/08/20 13:21:38 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=ocaml
-VERSION=4.00.0
+VERSION=3.12.1
 BUILD=${BUILD:-1}
 
 TMP=${TMP:-/tmp}
