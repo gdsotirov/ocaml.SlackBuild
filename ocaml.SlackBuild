@@ -4,7 +4,7 @@
 # Written by Georgi D. Sotirov <gdsotirov@dir.bg>
 #
 
-. ../slack-package.conf
+. ../../slack-package.conf
 
 NAME=ocaml
 VERSION=3.11.1
@@ -39,7 +39,7 @@ fix_source
 # Configure
 ./configure --host $ARCH-slackware-linux \
             --prefix /usr \
-            --libdir /usr/lib/$NAME \
+            --libdir /usr/lib${LIBDIRSUFFIX}/$NAME \
             --mandir /usr/man || exit 1
 
 sed -i -e "s/\\(BYTECCCOMPOPTS=.*\\)/\\1 ${SLKCFLAGS}/"   config/Makefile
@@ -51,7 +51,7 @@ make world.opt || exit 2
 # Install
 make PREFIX=$PKG \
      BINDIR=$PKG/usr/bin \
-     LIBDIR=$PKG/usr/lib/$NAME \
+     LIBDIR=$PKG/usr/lib${LIBDIRSUFFIX}/$NAME \
      MANDIR=$PKG/usr/man \
      install || exit 3
 
