@@ -9,4 +9,4 @@ ocaml: module system and a full-fledged object-oriented layer. It comes with
 ocaml: a native-code compiler that supports numerous architectures, for high
 ocaml: performance; a bytecode compiler, for increased portability; and an
 ocaml: interactive loop, for experimentation and rapid development.
-ocaml: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
+ocaml: Packaged by Georgi D. Sotirov <gdsotirov@gmail.com>
