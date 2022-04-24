@@ -23,7 +23,7 @@
 . ../../slack-package.conf
 
 NAME=ocaml
-VERSION=4.04.0
+VERSION=4.14.0
 ARCFH=${ARCH:-i586}
 BUILD=${BUILD:-1}
 
@@ -54,25 +54,23 @@ cd $SRC
 fix_source
 
 # Configure
-./configure --host $ARCH-slackware-linux \
-            --prefix /usr \
-            --libdir /usr/lib${LIBDIRSUFFIX}/$NAME \
-            --mandir /usr/man || exit 4
+AS=/usr/bin/as \
+CFLAGS="$SLKCFLAGS" \
+./configure --build="$ARCH-slackware-linux" \
+            --host="$ARCH-slackware-linux" \
+            --prefix=/usr \
+            --docdir=/usr/doc/${NAME}-${VERSION} \
+            --libdir=/usr/lib${LIBDIRSUFFIX}/$NAME \
+            --mandir=/usr/man \
+            --enable-debugger \
+            --enable-ocamltest \
+            --enable-shared=yes \
+            --enable-static=no || exit 4
 
-sed --in-place \
-    --expression="s/\\(BYTECCCOMPOPTS=.*\\)/\\1 ${SLKCFLAGS}/" \
-    --expression="s/\\(NATIVECCCOMPOPTS=.*\\)/\\1 ${SLKCFLAGS}/" \
-    config/Makefile
-
-# Build
-make world.opt || exit 5
-
-# Install
-make PREFIX=$PKG \
-     BINDIR=$PKG/usr/bin \
-     LIBDIR=$PKG/usr/lib${LIBDIRSUFFIX}/$NAME \
-     MANDIR=$PKG/usr/man \
-     install || exit 6
+# Build & test & install
+make --jobs 8 world.opt || exit 5
+make --jobs 8 tests || exit 6
+make DESTDIR=$PKG install || exit 7
 
 # Prepare
 bin_perms $PKG
