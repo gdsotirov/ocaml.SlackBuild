@@ -1,8 +1,2 @@
-binutils >= 2.26
-glibc-solibs >= 2.23
-libX11 >= 1.6.3
-libXau >= 1.0.8
-libXdmcp >= 1.1.2
-libxcb >= 1.11.1
-ncurses >= 5.9
-zlib >= 1.2.8
+aaa_glibc-solibs >= 2.33
+binutils >= 2.37
