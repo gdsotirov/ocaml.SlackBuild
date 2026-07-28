@@ -23,7 +23,7 @@
 . ../../slack-package.conf
 
 NAME=ocaml
-VERSION=4.14.4
+VERSION=5.5.0
 ARCFH=${ARCH:-i586}
 BUILD=${BUILD:-1}
 
@@ -68,9 +68,9 @@ CFLAGS="$SLKCFLAGS" \
             --enable-static=no || exit 4
 
 # Build & test & install
-make --jobs 8 world.opt || exit 5
-make --jobs 8 tests || exit 6
-make DESTDIR=$PKG install || exit 7
+make V=1 --jobs 8 world.opt || exit 5
+make V=1 --jobs 8 tests || exit 6
+make V=1 DESTDIR=$PKG install || exit 7
 
 # Prepare
 bin_perms $PKG
