@@ -23,7 +23,7 @@
 . ../../slack-package.conf
 
 NAME=ocaml
-VERSION=4.14.3
+VERSION=4.14.4
 ARCFH=${ARCH:-i586}
 BUILD=${BUILD:-1}
 
@@ -49,7 +49,7 @@ mkdir --parents $PKG
 
 # Extract the source
 cd $TMP
-tar --extract --verbose --file=$CWD/${NAME}-${VERSION}.tar.gz || exit 3
+tar --extract --verbose --file=$CWD/${NAME}-${VERSION}.tar.xz || exit 3
 cd $SRC
 fix_source
 
