@@ -1,2 +1,3 @@
 aaa_glibc-solibs >= 2.33
 binutils >= 2.37
+zstd >= 1.5.2
