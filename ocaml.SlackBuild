@@ -23,7 +23,7 @@
 . ../../slack-package.conf
 
 NAME=ocaml
-VERSION=5.5.0
+VERSION=5.5.1
 ARCFH=${ARCH:-i586}
 BUILD=${BUILD:-1}
 
